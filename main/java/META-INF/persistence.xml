@@ -5,6 +5,8 @@
 <class>donnees.Sport</class>
 <class>donnees.Discipline</class>
 <class>donnees.Sportif</class>
+<class>donnees.Salle</class>
+<class>donnees.Gestionnaire</class>
 <properties>
 <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://obiwan.univ-brest.fr:3306/zfm1-zde_keryo_1"/>
 <property name="javax.persistence.jdbc.user" value="zde_keryo"/>
