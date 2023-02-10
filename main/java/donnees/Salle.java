@@ -45,5 +45,22 @@ public class Salle implements Serializable {
 		this.sal_capacité = cap;
 		this.sal_nom = nom;
 	}
-	
+	public int Getsal_capacité() {
+		return this.sal_capacité;
+	}
+	public String Getsal_nom() {
+		return this.sal_nom;
+	}
+	public Gestionnaire Getgestionnaire() {
+		return this.gestionnaire;
+	}
+	public void Setsal_capacité( int cap) {
+		this.sal_capacité = cap;
+	}
+	public void Setsal_nom( String nom) {
+		this.sal_nom = nom;
+	}
+	public void Setgestionnaire( Gestionnaire g) {
+		this.gestionnaire = g;
+	}
 }

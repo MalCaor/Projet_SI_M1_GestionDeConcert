@@ -33,4 +33,18 @@ public class Gestionnaire implements Serializable {
 	@Column(name = "gst_pers")
 	private String gst_pers;
 
+	public Gestionnaire() {
+		
+	}
+	public Gestionnaire(String nom) {
+		this.gst_pers = nom;
+	}
+	
+	public String Getgst_pers(){
+		return this.gst_pers;
+	}
+	
+	public void Setgst_pers(String n) {
+		this.gst_pers = n;
+	}
 }
