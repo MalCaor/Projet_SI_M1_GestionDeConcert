@@ -28,7 +28,7 @@
 				</p>
 				<ul>
 					<c:forEach items="${sp.disciplines}" var="disc">
-						<li>${disc.intitule} (du sport ${disc.sport.intitule})</li>
+						<li>${disc.intitule}(du sport ${disc.sport.intitule})</li>
 					</c:forEach>
 				</ul>
 			</c:otherwise>
