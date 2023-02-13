@@ -9,9 +9,9 @@ import donnees.Concert;
 
 public class DAO_JPA_Concert extends DAO<Concert>{
 	EntityManager emf;
-	public DAO_JPA_Concert() throws DAOException {
+	public DAO_JPA_Concert(String entity) throws DAOException {
 		super();
-		emf=Persistence.createEntityManagerFactory("concert").createEntityManager();
+		emf=Persistence.createEntityManagerFactory(entity).createEntityManager();
 	}
 
 	@Override

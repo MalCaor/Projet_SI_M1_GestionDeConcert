@@ -2,6 +2,7 @@ import static com.mongodb.MongoClientSettings.getDefaultCodecRegistry;
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import static com.mongodb.client.model.Filters.eq;
@@ -9,12 +10,16 @@ import static com.mongodb.client.model.Filters.eq;
 import org.bson.codecs.configuration.CodecProvider;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
+import org.bson.conversions.Bson;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+import com.mongodb.client.result.UpdateResult;
 
 import mongoPojo.*;
 
@@ -33,7 +38,7 @@ public class TestMongoPOJO {
 		
 		MongoCollection<Federation> federations = database.getCollection("federations", Federation.class);
 		MongoCollection<Sportif> sportifs = database.getCollection("sportifs", Sportif.class);
-		
+		MongoCollection<Information> informations = database.getCollection("informations", Information.class);
 		for(Federation fed : federations.find()) {
 			System.out.println("\n** "+fed.getNom()+" ("+fed.getAcronyme()+") **");
 			System.out.println("Adresse : "+fed.getAdresse());
@@ -48,7 +53,7 @@ public class TestMongoPOJO {
 			}
 		}
 	       
-		// ajout d'un sportif
+		/* ajout d'un sportif
 		Sportif saturnin = new Sportif();
 		saturnin.setId(12);
 		saturnin.setNom("Legrand");
@@ -60,5 +65,20 @@ public class TestMongoPOJO {
 		disciplines.add("descente");
 		saturnin.setDisciplines(disciplines);
 		sportifs.insertOne(saturnin);
+		*/
+		/*
+		Information testinsert = new Information();
+		testinsert.setInformationDe("groupe");
+		testinsert.setInformationDeID(1);
+		testinsert.setDate("27/09/10 18:00");
+		testinsert.setAuteur("yoann");
+		informations.insertOne(testinsert);
+		*/
+		Bson filter = Filters.empty();
+		Bson update = Updates.set("autheur","yoann");
+		UpdateResult result = informations.updateMany(filter, update);
+		System.out.println("Matched document count: " + result.getMatchedCount());
+		System.out.println("Modified document count: " + result.getModifiedCount());
+
 	}
 }

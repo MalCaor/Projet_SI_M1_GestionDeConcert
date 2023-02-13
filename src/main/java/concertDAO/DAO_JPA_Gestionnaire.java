@@ -4,37 +4,37 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import donnees.Gestionnaire;
+import donnees.TSallesal;
 
-public class DAO_JPA_Gestionnaire extends DAO<Gestionnaire> {
+public class DAO_JPA_Gestionnaire extends DAO<TSallesal> {
     EntityManager emf;
-	public DAO_JPA_Gestionnaire() throws DAOException {
-		super();
-		emf=Persistence.createEntityManagerFactory("gestionnaire").createEntityManager();
-	}
-
-
-    @Override
-    public Gestionnaire find(int id) throws DAOException {
-        Gestionnaire gestionnaire = emf.find(Gestionnaire.class, id);
-        return gestionnaire;
+    public DAO_JPA_Gestionnaire(String entity) throws DAOException {
+        super();
+        emf=Persistence.createEntityManagerFactory(entity).createEntityManager();
     }
 
     @Override
-    public void create(Gestionnaire data) throws DAOException {
+    public TSallesal find(int id) throws DAOException {
+    	TSallesal salle = emf.find(TSallesal.class, id);
+        return salle;
+    }
+
+    @Override
+    public void create(TSallesal data) throws DAOException {
         EntityTransaction trans=null;
-        try {
-            trans = emf.getTransaction();
-            trans.begin();
-            emf.persist(data);
-            trans.commit();
-        } catch (Exception e) {
-            if(trans!=null)trans.rollback();
-        }
+		try {
+			trans = emf.getTransaction();
+			trans.begin();
+			emf.persist(data);
+			trans.commit();
+		}
+		catch(Exception e) {
+			if(trans!=null)trans.rollback();
+		}
     }
 
     @Override
-    public void update(Gestionnaire data) throws DAOException {
+    public void update(TSallesal data) throws DAOException {
         EntityTransaction trans=null;
 		try {
 			trans = emf.getTransaction();
@@ -48,7 +48,7 @@ public class DAO_JPA_Gestionnaire extends DAO<Gestionnaire> {
     }
 
     @Override
-    public void delete(Gestionnaire data) throws DAOException {
+    public void delete(TSallesal data) throws DAOException {
         EntityTransaction trans=null;
 		try {
 			trans = emf.getTransaction();

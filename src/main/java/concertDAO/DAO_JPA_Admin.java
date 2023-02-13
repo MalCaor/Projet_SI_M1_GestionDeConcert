@@ -4,23 +4,23 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import donnees.Billet;
+import donnees.TAdminadm;
 
-public class DAO_JPA_Billet extends DAO<Billet>{
+public class DAO_JPA_Admin extends DAO<TAdminadm>{
 	EntityManager emf;
-	public DAO_JPA_Billet(String entity) throws DAOException {
+	public DAO_JPA_Admin(String entity) throws DAOException {
 		super();
 		emf=Persistence.createEntityManagerFactory(entity).createEntityManager();
 	}
 
 	@Override
-	public Billet find(int id) throws DAOException {
-		Billet billet = emf.find(Billet.class, id);
-		return billet;
+	public TAdminadm find(int id) throws DAOException {
+		TAdminadm admin = emf.find(TAdminadm.class, id);
+		return admin;
 	}
 
 	@Override
-	public void create(Billet data) throws DAOException {
+	public void create(TAdminadm data) throws DAOException {
 		EntityTransaction trans=null;
 		try {
 			trans = emf.getTransaction();
@@ -35,7 +35,7 @@ public class DAO_JPA_Billet extends DAO<Billet>{
 	}
 
 	@Override
-	public void update(Billet data) throws DAOException {
+	public void update(TAdminadm data) throws DAOException {
 		EntityTransaction trans=null;
 		try {
 			trans = emf.getTransaction();
@@ -49,7 +49,7 @@ public class DAO_JPA_Billet extends DAO<Billet>{
 	}
 
 	@Override
-	public void delete(Billet data) throws DAOException {
+	public void delete(TAdminadm data) throws DAOException {
 		EntityTransaction trans=null;
 		try {
 			trans = emf.getTransaction();

@@ -10,6 +10,14 @@
 		<class>donnees.Discipline</class>
 		<class>donnees.Sportif</class>
 		<class>donnees.Concert</class>
+		<class>donnees.TAdminadm</class>
+		<class>donnees.TArtisteart</class>
+		<class>donnees.TBilletbil</class>
+		<class>donnees.TConcertcon</class>
+		<class>donnees.TSallesal</class>
+		<class>donnees.TGestionnaireGst</class>
+		<class>donnees.TGroupeGrp</class>
+		<class>donnees.TSoireesor</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:mariadb://obiwan.univ-brest.fr:3306/zfm1-zde_keryo_1" />

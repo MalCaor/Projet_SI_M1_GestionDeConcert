@@ -4,23 +4,24 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import donnees.TSallesal;
 
-public class DAO_JPA_Salle extends DAO<TSallesal> {
+import donnees.TSoireesor;
+
+public class DAO_JPA_Soiree extends DAO<TSoireesor> {
     EntityManager emf;
-    public DAO_JPA_Salle(String entity) throws DAOException {
+    public DAO_JPA_Soiree(String entity) throws DAOException {
         super();
         emf=Persistence.createEntityManagerFactory(entity).createEntityManager();
     }
 
     @Override
-    public TSallesal find(int id) throws DAOException {
-    	TSallesal salle = emf.find(TSallesal.class, id);
-        return salle;
+    public TSoireesor find(int id) throws DAOException {
+    	TSoireesor soiree = emf.find(TSoireesor.class, id);
+        return soiree;
     }
 
     @Override
-    public void create(TSallesal data) throws DAOException {
+    public void create(TSoireesor data) throws DAOException {
         EntityTransaction trans=null;
 		try {
 			trans = emf.getTransaction();
@@ -34,7 +35,7 @@ public class DAO_JPA_Salle extends DAO<TSallesal> {
     }
 
     @Override
-    public void update(TSallesal data) throws DAOException {
+    public void update(TSoireesor data) throws DAOException {
         EntityTransaction trans=null;
 		try {
 			trans = emf.getTransaction();
@@ -48,7 +49,7 @@ public class DAO_JPA_Salle extends DAO<TSallesal> {
     }
 
     @Override
-    public void delete(TSallesal data) throws DAOException {
+    public void delete(TSoireesor data) throws DAOException {
         EntityTransaction trans=null;
 		try {
 			trans = emf.getTransaction();
