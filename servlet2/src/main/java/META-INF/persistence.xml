@@ -6,10 +6,7 @@
 	<persistence-unit name="concert"
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<class>donnees.Sport</class>
-		<class>donnees.Discipline</class>
-		<class>donnees.Sportif</class>
-		<class>donnees.Concert</class>
+
 		<class>donnees.TAdminadm</class>
 		<class>donnees.TArtisteart</class>
 		<class>donnees.TBilletbil</class>

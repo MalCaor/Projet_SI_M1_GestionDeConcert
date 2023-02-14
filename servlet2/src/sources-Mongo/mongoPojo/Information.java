@@ -8,6 +8,7 @@ public class Information {
 	private int informationDeID;
 	private String date ;
 	private String auteur ;
+	private String information ; 
 	public String getInformationDe() {
 		return informationDe;
 	}
@@ -32,9 +33,15 @@ public class Information {
 	public void setAuteur(String auteur) {
 		this.auteur = auteur;
 	}
+	public String getInformation() {
+		return information;
+	}
+	public void setInformation(String information) {
+		this.information = information;
+	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(auteur, date, informationDe, informationDeID);
+		return Objects.hash(auteur, date, information, informationDe, informationDeID);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -46,6 +53,8 @@ public class Information {
 			return false;
 		Information other = (Information) obj;
 		return Objects.equals(auteur, other.auteur) && Objects.equals(date, other.date)
-				&& Objects.equals(informationDe, other.informationDe) && informationDeID == other.informationDeID;
+				&& Objects.equals(information, other.information) && Objects.equals(informationDe, other.informationDe)
+				&& informationDeID == other.informationDeID;
 	}
+	
 }

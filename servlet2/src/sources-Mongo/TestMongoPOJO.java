@@ -26,15 +26,15 @@ import mongoPojo.*;
 public class TestMongoPOJO {
 
 	public static void main(String[] args) {
-
-		// connexion à la base Mongo et à la base "sports"
+/*
+		// connexion ï¿½ la base Mongo et ï¿½ la base "sports"
 		CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
 		CodecRegistry pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
 		
 		ConnectionString connectionString = new ConnectionString("mongodb://obiwan.univ-brest.fr:27017");
 		MongoClient mongoClient = MongoClients.create(connectionString);
 		MongoDatabase database = mongoClient.getDatabase("zde_keryo").withCodecRegistry(pojoCodecRegistry);
-		System.out.println("Connexion établie\n");
+		System.out.println("Connexion ï¿½tablie\n");
 		
 		MongoCollection<Federation> federations = database.getCollection("federations", Federation.class);
 		MongoCollection<Sportif> sportifs = database.getCollection("sportifs", Sportif.class);
@@ -47,7 +47,7 @@ public class TestMongoPOJO {
 				System.out.print(disc+ " ");
 			System.out.println("\nSportifs : ");
 			for(Integer idSportif : fed.getSportifs()) {
-				// on fait la jointure à la main avec un find
+				// on fait la jointure ï¿½ la main avec un find
 				Sportif sportif = (Sportif) sportifs.find(eq("_id",idSportif)).first();
 				System.out.println(" - "+sportif.getPrenom()+ " "+sportif.getNom());
 			}
@@ -73,12 +73,12 @@ public class TestMongoPOJO {
 		testinsert.setDate("27/09/10 18:00");
 		testinsert.setAuteur("yoann");
 		informations.insertOne(testinsert);
-		*/
+		
 		Bson filter = Filters.empty();
 		Bson update = Updates.set("autheur","yoann");
 		UpdateResult result = informations.updateMany(filter, update);
 		System.out.println("Matched document count: " + result.getMatchedCount());
 		System.out.println("Modified document count: " + result.getModifiedCount());
-
+*/
 	}
 }

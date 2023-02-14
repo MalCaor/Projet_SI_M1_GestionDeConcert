@@ -4,10 +4,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import donnees.Concert;
+
+import donnees.TConcertcon;
 
 
-public class DAO_JPA_Concert extends DAO<Concert>{
+public class DAO_JPA_Concert extends DAO<TConcertcon>{
 	EntityManager emf;
 	public DAO_JPA_Concert(String entity) throws DAOException {
 		super();
@@ -15,13 +16,13 @@ public class DAO_JPA_Concert extends DAO<Concert>{
 	}
 
 	@Override
-	public 	Concert find(int id) throws DAOException {
-		Concert concert = emf.find(Concert.class, id);
+	public 	TConcertcon find(int id) throws DAOException {
+		TConcertcon concert = emf.find(TConcertcon.class, id);
 		return concert;
 	}
 
 	@Override
-	public void create(Concert data) throws DAOException {
+	public void create(TConcertcon data) throws DAOException {
 		EntityTransaction trans=null;
 		try {
 			trans = emf.getTransaction();
@@ -35,7 +36,7 @@ public class DAO_JPA_Concert extends DAO<Concert>{
 	}
 
 	@Override
-	public void update(Concert data) throws DAOException {
+	public void update(TConcertcon data) throws DAOException {
 		EntityTransaction trans=null;
 		try {
 			trans = emf.getTransaction();
@@ -49,7 +50,7 @@ public class DAO_JPA_Concert extends DAO<Concert>{
 	}
 
 	@Override
-	public void delete(Concert data) throws DAOException {
+	public void delete(TConcertcon data) throws DAOException {
 		EntityTransaction trans=null;
 		try {
 			trans = emf.getTransaction();
