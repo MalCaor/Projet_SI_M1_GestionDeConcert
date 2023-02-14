@@ -17,29 +17,29 @@ import donnees.*;
 
 public class SportServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+	/*
 	public List<Sportif> getListeSportifs() {
-		// requête JPQL pour récupérer les sportifs dans la BDD
+		// requï¿½te JPQL pour rï¿½cupï¿½rer les sportifs dans la BDD
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpasport");
 		EntityManager em = emf.createEntityManager();
 		Query requete = em.createQuery("SELECT s FROM Sportif s");
 		return (List<Sportif>) requete.getResultList();
 	}
-	/*
+	
 	public void addSport(String intitule) {
-		// requête JPQL pour récupérer les sportifs dans la BDD
+		// requï¿½te JPQL pour rï¿½cupï¿½rer les sportifs dans la BDD
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpasport");
 		EntityManager em = emf.createEntityManager();
 		Query requete = em.createQuery("insert into sport values (null,'"+intitule+"'");
 		return ;
-	}*/
+	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String operation = request.getParameter("operation");
 		if (operation.equals("listeSportif")) {
-			// récupère la liste des sportifs et l'associe à la requête HTTP
+			// rï¿½cupï¿½re la liste des sportifs et l'associe ï¿½ la requï¿½te HTTP
 			request.setAttribute("sportifs", this.getListeSportifs());
-			// forwarde la requête à la page JSP
+			// forwarde la requï¿½te ï¿½ la page JSP
 			getServletConfig().getServletContext().getRequestDispatcher("/afficheSportifs.jsp")
 				.forward(request, response);
 		}else if(operation.equals("ajouterSport")) {
@@ -79,7 +79,7 @@ public class SportServlet extends HttpServlet {
 			 String intitule = request.getParameter("intitule");
 		 }
 	}
-			 
+		*/	 
 	
 
 }
