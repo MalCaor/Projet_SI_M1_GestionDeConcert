@@ -1,8 +1,11 @@
 package concertDAO;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import donnees.TAdminadm;
 
@@ -17,6 +20,11 @@ public class DAO_JPA_Admin extends DAO<TAdminadm>{
 	public TAdminadm find(int id) throws DAOException {
 		TAdminadm admin = emf.find(TAdminadm.class, id);
 		return admin;
+	}
+	public List<TAdminadm> findAll() throws DAOException {
+		Query q = emf.createNamedQuery("TAdminadm.findAll");
+		List<TAdminadm>l =q.getResultList();
+		return l;
 	}
 
 	@Override

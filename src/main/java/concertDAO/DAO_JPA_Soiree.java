@@ -1,9 +1,11 @@
 package concertDAO;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-
+import javax.persistence.Query;
 
 import donnees.TSoireesor;
 
@@ -19,7 +21,13 @@ public class DAO_JPA_Soiree extends DAO<TSoireesor> {
     	TSoireesor soiree = emf.find(TSoireesor.class, id);
         return soiree;
     }
+    
 
+    public List<TSoireesor> findAll() throws DAOException {
+    	Query q = emf.createNamedQuery("TSoireesor.findAll");
+    	List<TSoireesor> soirees = q.getResultList();
+        return soirees;
+    }
     @Override
     public void create(TSoireesor data) throws DAOException {
         EntityTransaction trans=null;

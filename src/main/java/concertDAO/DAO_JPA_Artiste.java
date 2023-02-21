@@ -1,4 +1,4 @@
-package ArtisteDAO;
+package concertDAO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;

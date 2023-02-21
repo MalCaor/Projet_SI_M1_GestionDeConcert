@@ -4,9 +4,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import donnees.Billet;
 
-public class DAO_JPA_Billet extends DAO<Billet>{
+import donnees.TBilletbil;
+
+public class DAO_JPA_Billet extends DAO<TBilletbil>{
 	EntityManager emf;
 	public DAO_JPA_Billet(String entity) throws DAOException {
 		super();
@@ -14,13 +15,13 @@ public class DAO_JPA_Billet extends DAO<Billet>{
 	}
 
 	@Override
-	public Billet find(int id) throws DAOException {
-		Billet billet = emf.find(Billet.class, id);
+	public TBilletbil find(int id) throws DAOException {
+		TBilletbil billet = emf.find(TBilletbil.class, id);
 		return billet;
 	}
 
 	@Override
-	public void create(Billet data) throws DAOException {
+	public void create(TBilletbil data) throws DAOException {
 		EntityTransaction trans=null;
 		try {
 			trans = emf.getTransaction();
@@ -35,7 +36,7 @@ public class DAO_JPA_Billet extends DAO<Billet>{
 	}
 
 	@Override
-	public void update(Billet data) throws DAOException {
+	public void update(TBilletbil data) throws DAOException {
 		EntityTransaction trans=null;
 		try {
 			trans = emf.getTransaction();
@@ -49,7 +50,7 @@ public class DAO_JPA_Billet extends DAO<Billet>{
 	}
 
 	@Override
-	public void delete(Billet data) throws DAOException {
+	public void delete(TBilletbil data) throws DAOException {
 		EntityTransaction trans=null;
 		try {
 			trans = emf.getTransaction();

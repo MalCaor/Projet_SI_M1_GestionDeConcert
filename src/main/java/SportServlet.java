@@ -13,33 +13,44 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import concertDAO.AbstractDAOFactory;
+import concertDAO.ConcertDAOFactory;
+import concertDAO.DAOException;
+import concertDAO.DAO_JPA_Soiree;
+import concertDAO.PersistenceKind;
 import donnees.*;
 
 public class SportServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+	/*
 	public List<Sportif> getListeSportifs() {
-		// requête JPQL pour récupérer les sportifs dans la BDD
+		// requï¿½te JPQL pour rï¿½cupï¿½rer les sportifs dans la BDD
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpasport");
 		EntityManager em = emf.createEntityManager();
 		Query requete = em.createQuery("SELECT s FROM Sportif s");
 		return (List<Sportif>) requete.getResultList();
 	}
-	/*
+	
 	public void addSport(String intitule) {
-		// requête JPQL pour récupérer les sportifs dans la BDD
+		// requï¿½te JPQL pour rï¿½cupï¿½rer les sportifs dans la BDD
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpasport");
 		EntityManager em = emf.createEntityManager();
 		Query requete = em.createQuery("insert into sport values (null,'"+intitule+"'");
 		return ;
 	}*/
+	 public List<TSoireesor> getListeSoirees() throws DAOException {
+    	 ConcertDAOFactory factory = AbstractDAOFactory.getDAOFactory(PersistenceKind.JPA);
+    	 DAO_JPA_Soiree daoSoiree = (DAO_JPA_Soiree)factory.getDAOSoiree(); 
+		return daoSoiree.findAll();
+	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String operation = request.getParameter("operation");
+		/*
 		if (operation.equals("listeSportif")) {
-			// récupère la liste des sportifs et l'associe à la requête HTTP
+			// rï¿½cupï¿½re la liste des sportifs et l'associe ï¿½ la requï¿½te HTTP
 			request.setAttribute("sportifs", this.getListeSportifs());
-			// forwarde la requête à la page JSP
+			// forwarde la requï¿½te ï¿½ la page JSP
 			getServletConfig().getServletContext().getRequestDispatcher("/afficheSportifs.jsp")
 				.forward(request, response);
 		}else if(operation.equals("ajouterSport")) {
@@ -59,6 +70,17 @@ public class SportServlet extends HttpServlet {
 			}catch(Exception e) {
 				if(trans!=null)trans.rollback();
 			}
+		}*/
+		if (operation.equals("listeSoirees")) {
+			try {
+				// rï¿½cupï¿½re la liste des sportifs et l'associe ï¿½ la requï¿½te HTTP
+				request.setAttribute("soirees", this.getListeSoirees());
+			} catch (DAOException e) {
+				e.printStackTrace();
+			}
+			// forwarde la requï¿½te ï¿½ la page JSP
+			getServletConfig().getServletContext().getRequestDispatcher("/soirees.jsp")
+				.forward(request, response);
 		}
 	}
 

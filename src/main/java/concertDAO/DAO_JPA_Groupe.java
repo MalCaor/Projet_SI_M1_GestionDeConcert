@@ -1,4 +1,4 @@
-package GroupeDAO;
+package concertDAO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;

@@ -4,9 +4,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import donnees.TGestionnaireGst;
 import donnees.TSallesal;
 
-public class DAO_JPA_Gestionnaire extends DAO<TSallesal> {
+public class DAO_JPA_Gestionnaire extends DAO<TGestionnaireGst> {
     EntityManager emf;
     public DAO_JPA_Gestionnaire(String entity) throws DAOException {
         super();
@@ -14,13 +15,13 @@ public class DAO_JPA_Gestionnaire extends DAO<TSallesal> {
     }
 
     @Override
-    public TSallesal find(int id) throws DAOException {
-    	TSallesal salle = emf.find(TSallesal.class, id);
-        return salle;
+    public TGestionnaireGst find(int id) throws DAOException {
+    	TGestionnaireGst gestionnaire = emf.find(TGestionnaireGst.class, id);
+        return gestionnaire;
     }
 
     @Override
-    public void create(TSallesal data) throws DAOException {
+    public void create(TGestionnaireGst data) throws DAOException {
         EntityTransaction trans=null;
 		try {
 			trans = emf.getTransaction();
@@ -34,7 +35,7 @@ public class DAO_JPA_Gestionnaire extends DAO<TSallesal> {
     }
 
     @Override
-    public void update(TSallesal data) throws DAOException {
+    public void update(TGestionnaireGst data) throws DAOException {
         EntityTransaction trans=null;
 		try {
 			trans = emf.getTransaction();
@@ -48,7 +49,7 @@ public class DAO_JPA_Gestionnaire extends DAO<TSallesal> {
     }
 
     @Override
-    public void delete(TSallesal data) throws DAOException {
+    public void delete(TGestionnaireGst data) throws DAOException {
         EntityTransaction trans=null;
 		try {
 			trans = emf.getTransaction();
