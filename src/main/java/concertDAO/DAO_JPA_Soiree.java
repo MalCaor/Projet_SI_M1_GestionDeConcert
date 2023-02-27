@@ -18,8 +18,17 @@ public class DAO_JPA_Soiree extends DAO<TSoireesor> {
 
     @Override
     public TSoireesor find(int id) throws DAOException {
-    	TSoireesor soiree = emf.find(TSoireesor.class, id);
-        return soiree;
+    	//TSoireesor soiree = emf.find(TSoireesor.class, id);
+    	Query q = emf.createQuery("SELECT t FROM TSoireesor t WHERE t.sorId = :sorId");
+    
+    	q.setParameter("sorId",id);
+    	List<TSoireesor> soirees=q.getResultList();
+    	if(soirees.get(0).gettConcertconSet().size()==0) {
+    		System.out.println("fuckezffz");
+    	}else {
+    		System.out.println("fuuuuuuuuuu");
+    	}
+    	return soirees.get(0) ;
     }
     
 

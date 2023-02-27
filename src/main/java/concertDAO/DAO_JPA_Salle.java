@@ -1,10 +1,14 @@
 package concertDAO;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import donnees.TSallesal;
+import donnees.TSoireesor;
 
 public class DAO_JPA_Salle extends DAO<TSallesal> {
     EntityManager emf;
@@ -17,6 +21,14 @@ public class DAO_JPA_Salle extends DAO<TSallesal> {
     public TSallesal find(int id) throws DAOException {
     	TSallesal salle = emf.find(TSallesal.class, id);
         return salle;
+    }
+    
+
+    public TSallesal findAgenda(int id) throws DAOException {
+    	Query q = emf.createNamedQuery("TSallesal.findAgendaSalle");
+    	q.setParameter("salId",id);
+    	List<TSallesal> salle = q.getResultList();
+        return salle.get(0);
     }
 
     @Override
@@ -60,5 +72,6 @@ public class DAO_JPA_Salle extends DAO<TSallesal> {
 			if(trans!=null)trans.rollback();
 		}
     }
+ 
     
 }

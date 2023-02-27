@@ -52,7 +52,7 @@ public class TConcertcon implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date conDateFin;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "con-prix")
+    @Column(name = "con_prix")
     private Double conPrix;
     @JoinTable(name = "t_Participe_par", joinColumns = {
         @JoinColumn(name = "con_id", referencedColumnName = "con_id")}, inverseJoinColumns = {

@@ -34,5 +34,14 @@
 		</tr>
 	</c:forEach>
 	</table>
+	<form action="SoireeServlet?operation=agendaSalle" method="post">
+		<p>
+			<input type="hidden" name="salleId" value="1">
+		</p>
+
+
+			<input type="submit" value="salle">
+			
+				</form>
 </body>
 </html>

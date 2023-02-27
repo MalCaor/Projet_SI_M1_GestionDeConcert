@@ -77,11 +77,11 @@ public class TSoireesor implements Serializable {
         this.sallId = sallId;
     }
 
-    public Set<TConcertcon> getTConcertconSet() {
+    public Set<TConcertcon> gettConcertconSet() {
         return tConcertconSet;
     }
 
-    public void setTConcertconSet(Set<TConcertcon> tConcertconSet) {
+    public void settConcertconSet(Set<TConcertcon> tConcertconSet) {
         this.tConcertconSet = tConcertconSet;
     }
 

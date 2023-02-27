@@ -30,12 +30,14 @@ import javax.persistence.Table;
     @NamedQuery(name = "TSallesal.findAll", query = "SELECT t FROM TSallesal t"),
     @NamedQuery(name = "TSallesal.findBySalId", query = "SELECT t FROM TSallesal t WHERE t.salId = :salId"),
     @NamedQuery(name = "TSallesal.findBySalCapacit\u00e9", query = "SELECT t FROM TSallesal t WHERE t.salCapacit\u00e9 = :salCapacit\u00e9"),
-    @NamedQuery(name = "TSallesal.findBySalNom", query = "SELECT t FROM TSallesal t WHERE t.salNom = :salNom"),
-    @NamedQuery(name = "TSallesal.findBySalAdresse", query = "SELECT t FROM TSallesal t WHERE t.salAdresse = :salAdresse")})
+    @NamedQuery(name = "TSallesal.findAgendaSalle", query = "SELECT t FROM TSallesal t "
+    		+ "JOIN t.tSoireesorSet s "
+    		+ "join s.tConcertconSet c "
+    		+ "WHERE t.salId = :salId")})
 public class TSallesal implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
+    @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "sal_id")
@@ -91,19 +93,19 @@ public class TSallesal implements Serializable {
         this.salAdresse = salAdresse;
     }
 
-    public TGestionnaireGst getTGestionnaireGstGstId() {
+    public TGestionnaireGst gettGestionnaireGstGstId() {
         return tGestionnaireGstGstId;
     }
 
-    public void setTGestionnaireGstGstId(TGestionnaireGst tGestionnaireGstGstId) {
+    public void settGestionnaireGstGstId(TGestionnaireGst tGestionnaireGstGstId) {
         this.tGestionnaireGstGstId = tGestionnaireGstGstId;
     }
 
-    public Set<TSoireesor> getTSoireesorSet() {
+    public Set<TSoireesor> gettSoireesorSet() {
         return tSoireesorSet;
     }
 
-    public void setTSoireesorSet(Set<TSoireesor> tSoireesorSet) {
+    public void settSoireesorSet(Set<TSoireesor> tSoireesorSet) {
         this.tSoireesorSet = tSoireesorSet;
     }
 
@@ -129,7 +131,17 @@ public class TSallesal implements Serializable {
 
     @Override
     public String toString() {
-        return "donnees.TSallesal[ salId=" + salId + " ]";
+    	    	if(this.tSoireesorSet==null) {
+    	    		return "fuck";
+    	    	}
+    	    	if(this.tSoireesorSet.isEmpty()) {
+    	    		return "vide";
+    	    	}else {
+    	    		return "non vide";
+    	    	}
+    	   
+    	    
+        //return "donnees.TSallesal[ salId=" + salId + " ]";
     }
     
 }
