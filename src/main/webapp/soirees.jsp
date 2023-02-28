@@ -9,7 +9,9 @@
 <title>Planning</title>
 </head>
 <body>
+<a href="listeSoirees.html">Afficher toutes les soirées(vue js)</a>
 
+<a href="SalleServlet?operation=listeSalles">liste salle </a>
 	<h3>Liste de soirée organisé</h3>
 	<table>
 		<tr>

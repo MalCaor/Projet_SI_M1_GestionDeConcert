@@ -17,11 +17,11 @@
 		<class>donnees.TSoireesor</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mariadb://localhost/concert" />
+				value="jdbc:mariadb://obiwan.univ-brest.fr/zfm1-zde_keryo_1" />
 			<property name="javax.persistence.jdbc.user"
-				value="root" />
+				value="zde_keryo" />
 			<property name="javax.persistence.jdbc.password"
-				value="" />
+				value="reqggr4z" />
 			<property name="javax.persistence.jdbc.driver"
 				value="org.mariadb.jdbc.Driver" />
 			<property name="hibernate.show_sql" value="true" />

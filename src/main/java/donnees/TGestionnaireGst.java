@@ -119,4 +119,13 @@ public class TGestionnaireGst implements Serializable {
         return "donnees.TGestionnaireGst[ gstId=" + gstId + " ]";
     }
     
+    public String tojson() {
+    	String personne,assocNom,assocPres;
+    	personne=this.getGstPers()==null?"null":"\""+this.getGstPers()+"\"";
+    	assocNom=this.getGstAssocNom()==null?"null":"\""+this.getGstAssocNom()+"\"";
+    	assocPres=this.getGstAssocPres()==null?"null":"\""+this.getGstAssocPres()+"\"";
+    	return "{\"gstId\":"+this.getGstId()+", \"gstPers\":"+personne+
+    			", \"gstAssocNom\":"+assocNom+
+    			", \"gstAssocPres\":"+assocPres+"}";
+    }
 }

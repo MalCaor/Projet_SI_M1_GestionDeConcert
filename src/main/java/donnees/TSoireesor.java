@@ -46,6 +46,7 @@ public class TSoireesor implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sorId")
     private Set<TConcertcon> tConcertconSet;
 
+
     public TSoireesor() {
     }
 
@@ -80,6 +81,7 @@ public class TSoireesor implements Serializable {
     public Set<TConcertcon> gettConcertconSet() {
         return tConcertconSet;
     }
+
 
     public void settConcertconSet(Set<TConcertcon> tConcertconSet) {
         this.tConcertconSet = tConcertconSet;

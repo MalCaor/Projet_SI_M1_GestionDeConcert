@@ -53,7 +53,8 @@
 							<ul>
 								<c:forEach items="${s.tConcertconSet}" var="c">
 									<li>
-										${c.conId}
+										${c.conDateDebut} - ${c.conDateFin}
+										<a href="SoireeServlet?operation=formBillet&type=concert&id=${c.conId}">acheter billet</a>
 									</li>
 								</c:forEach>
 							</ul>

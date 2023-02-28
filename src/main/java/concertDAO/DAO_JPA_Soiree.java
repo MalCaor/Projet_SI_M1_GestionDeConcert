@@ -23,11 +23,6 @@ public class DAO_JPA_Soiree extends DAO<TSoireesor> {
     
     	q.setParameter("sorId",id);
     	List<TSoireesor> soirees=q.getResultList();
-    	if(soirees.get(0).gettConcertconSet().size()==0) {
-    		System.out.println("fuckezffz");
-    	}else {
-    		System.out.println("fuuuuuuuuuu");
-    	}
     	return soirees.get(0) ;
     }
     

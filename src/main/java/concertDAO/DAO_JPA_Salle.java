@@ -23,6 +23,11 @@ public class DAO_JPA_Salle extends DAO<TSallesal> {
         return salle;
     }
     
+    public List<TSallesal> findAll() throws DAOException {
+    	Query q = emf.createNamedQuery("TSallesal.findAll");
+    	List<TSallesal> salles = q.getResultList();
+        return salles;
+    }
 
     public TSallesal findAgenda(int id) throws DAOException {
     	Query q = emf.createNamedQuery("TSallesal.findAgendaSalle");
