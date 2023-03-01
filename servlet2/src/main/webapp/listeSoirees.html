@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Acces sportifs avec Vue</title>
+    <link rel="stylesheet" href="css.css" type="text/css">
+</head>
+<body>
+    <main id="app">
+        <h1>Acces aux sportifs de mysql avec Vue</h1>
+        <p>Code écrit par <a :href="siteWeb">{{ auteur }}</a>.</p>
+        <p>Il y a {{ nbSoirees }} sportifs dans la base.</p>
+        <div v-for="sp in soirees" :key="sp.sorId"> 
+            <h3>{{ sp.sorNom }}</h3>
+      
+        </div>
+        <p><br /></p>
+    </main>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const Soirees = {
+            data() {
+                return {
+                    auteur: "Eric Cariou",
+                    siteWeb: "https://lab-sticc.univ-brest.fr/~ecariou/",
+                    soirees: []
+                }    
+            },
+            created()  {
+                fetch('http://localhost:8080/servlet2/SoireeServlet?operation=listeSoirees')
+  				.then((response) => response.json())
+  				.then((json) => {this.soirees = json});
+            },
+            computed: {
+                nbSoirees() {
+                    return this.soirees.length
+                }
+            }
+        }
+        const app = Vue.createApp(Soirees).mount('#app')
+    </script>
+</body>
+</html>
