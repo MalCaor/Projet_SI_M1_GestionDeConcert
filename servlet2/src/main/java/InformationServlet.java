@@ -26,7 +26,6 @@ public class InformationServlet extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-
 		dao = new DAO_Mongo_Informations("mongodb://obiwan.univ-brest.fr:27017","zde_keryo");
 		informations = dao.getAllInformation();
 	}

@@ -5,7 +5,16 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import mapper.AcheterBilletMapper;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+
+import org.json.HTTP;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import concertDAO.AbstractDAOFactory;
 import concertDAO.ConcertDAOFactory;
@@ -49,12 +58,12 @@ public class BilletServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String operation = request.getParameter("operation");
-		 if(operation.equals("acheterBillet")) {
-				int nbBillet =Integer.parseInt(request.getParameter("nbBillet"));
-				int idConcert =Integer.parseInt(request.getParameter("concert"));
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	    
+		 ObjectMapper objectMapper = new ObjectMapper();
+		 AcheterBilletMapper myItem = objectMapper.readValue(request.getInputStream(),AcheterBilletMapper.class);
+		 if(myItem.getOperation().equals("acheterBillet")) {
+				int nbBillet = myItem.getNbBillet();
+				int idConcert =myItem.getConcertId();
 				try {
 					this.postAcheterBillet(idConcert, nbBillet);
 				} catch (DAOException e) {

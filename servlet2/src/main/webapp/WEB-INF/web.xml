@@ -91,4 +91,14 @@
     <servlet-name>InformationServlet</servlet-name>
     <url-pattern>/InformationServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ConcertServlet</display-name>
+    <servlet-name>ConcertServlet</servlet-name>
+    <servlet-class>ConcertServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConcertServlet</servlet-name>
+    <url-pattern>/ConcertServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
